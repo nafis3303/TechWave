@@ -11,6 +11,16 @@
   position:relative;
 }
 
+/* mobile */
+@media (max-width: 576px){
+  .hero-circle{
+    width: 260px;
+    height: 260px;
+    box-shadow: 0 0 38px rgba(255, 60, 172, 0.45);
+  }
+}
+
+
 /* NEW badge bounce */
 @keyframes softBounce {
   0%, 100% { transform: translateY(0); }
@@ -25,8 +35,26 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
-.mic-float{
-  animation: floatMic 3s ease-in-out infinite;
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg) translateY(-12px);
+  }
+  to {
+    transform: rotate(360deg) translateY(-12px);
+  }
+}
+
+/* Smooth transition when entering hover */
+.hero-circle img {
+  transition: transform 0.3s ease;
+}
+
+/* Rotate continuously WHILE hovering */
+.hero-circle:hover img {
+  animation:
+    floatMic 3s ease-in-out infinite,
+    rotate360 1.2s linear infinite;
 }
 
 /* Button hover animation */
@@ -65,4 +93,24 @@
   width: 100%;
   height: 100%;
   border: 0;
+}
+@media (max-width: 576px){
+  .badge-bounce{
+    top: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+  }
+}
+@media (max-width: 576px){
+  .hero-title-fix{
+    font-size: 44px !important;
+    line-height: 1.05 !important;
+    margin-top: 18px !important;
+  }
+  .hero-subtitle-fix{
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-top: 10px !important;
+    padding: 0 10px;
+  }
 }
