@@ -1,352 +1,68 @@
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", Arial, sans-serif;
-  background: radial-gradient(circle at top, #2b0f4d, #12062a 60%);
-  color: #ffffff;
-  line-height: 1.6;
-}
-
-/* ================= GLOBAL SECTION SPACING ================= */
-section {
-  padding: 96px 10%;
-}
-
-/* ================= NAVBAR ================= */
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 18px 0;
-  background: rgba(18, 6, 42, 0.85);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  z-index: 100;
-}
-
-.nav-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-}
-
-.logo {
-  font-size: 26px;
-  font-weight: 800;
-}
-
-.logo span {
-  color: #ff3cac;
-}
-
-.nav-links {
-  justify-self: center;
-}
-
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  margin: 0 16px;
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-.nav-links a:hover {
-  opacity: 1;
-}
-
-.btn-subscribe-top {
-  background: linear-gradient(90deg, #ff3cac, #ffdd55);
-  border: none;
-  padding: 10px 18px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 14px;
-}
-
-/* ================= HERO ================= */
-.hero {
-  min-height: 100vh;
-  background: url("assets/hero-bg.png") center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 90px;
-}
-
-.hero-circle {
+/* Hero circle exactly controlled (Figma-like) */
+.hero-circle{
   width: 340px;
   height: 340px;
-  border-radius: 50%;
+  border-radius: 9999px;
   background: linear-gradient(135deg, #ffdd55, #ff3cac, #784ba0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 0 50px rgba(255, 60, 172, 0.6);
+  box-shadow: 0 0 55px rgba(255, 60, 172, 0.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
 }
 
-.hero-circle img {
-  width: 120px;
+/* NEW badge bounce */
+@keyframes softBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.badge-bounce{
+  animation: softBounce 1.5s ease-in-out infinite;
 }
 
-.hero-new {
-  position: absolute;
-  top: 18px;
-  right: -12px;
-  background: #00ff99;
-  color: #000;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
+/* Microphone float */
+@keyframes floatMic {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.mic-float{
+  animation: floatMic 3s ease-in-out infinite;
 }
 
-.hero h1 {
-  margin-top: 28px;
-  font-size: 64px;
-  font-weight: 800;
+/* Button hover animation */
+.btn-hover{
+  transition: transform .2s ease, filter .2s ease;
+}
+.btn-hover:hover{
+  transform: scale(1.04);
+  filter: brightness(1.05);
 }
 
-.hero p {
-  margin-top: 10px;
-  font-size: 15px;
-  max-width: 520px;
-  opacity: 0.85;
+/* Why cards */
+.why-card{
+  background: rgba(27, 13, 63, 0.95);
+  border-radius: 16px;
+  padding: 24px;
 }
 
-.hero-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 16px;
-}
-
-.btn-spotify {
-  background: linear-gradient(90deg, #ff3cac, #ffdd55);
-  border: none;
-  padding: 12px 24px;
-  border-radius: 30px;
-  color: #fff;
-  font-size: 14px;
-}
-
-.btn-outline {
-  background: transparent;
-  border: 1px solid #00ff99;
-  padding: 12px 24px;
-  border-radius: 30px;
-  color: #00ff99;
-  font-size: 14px;
-}
-
-/* ================= ABOUT ================= */
-.about {
-  text-align: center;
-}
-
-.about h2 {
-  font-size: 40px;
-  margin-bottom: 16px;
-}
-
-.about p {
-  max-width: 820px;
-  margin: 0 auto 14px;
-  font-size: 15px;
-  opacity: 0.85;
-}
-
-.about-divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,0.08);
-  margin: 40px 0;
-}
-
-/* ================= STATS ================= */
-.stats {
-  margin-top: 48px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
-.stat h3 {
-  font-size: 42px;
-  color: #00ff99;
-  margin-bottom: 4px;
-}
-
-.stat span {
-  font-size: 12px;
-  opacity: 0.7;
-}
-
-/* ================= WHY CHOOSE ================= */
-.why {
-  padding-top: 80px;
-  padding-bottom: 100px;
-}
-
-.why h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 48px;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-}
-
-.why-card {
-  background: #1b0d3f;
-  padding: 22px;
-  border-radius: 18px;
-}
-
-.why-card img {
-  width: 42px;
-  margin-bottom: 14px;
-}
-
-.why-card h4 {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.why-card p {
-  font-size: 13px;
-  opacity: 0.8;
-  line-height: 1.5;
-}
-
-/* ================= EPISODES ================= */
-.episodes h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 48px;
-}
-
-.episode-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.episode-card {
-  background: #1b0d3f;
-  border-radius: 18px;
+/* Episodes */
+.episode-card{
+  background: rgba(27, 13, 63, 0.95);
+  border-radius: 16px;
   overflow: hidden;
 }
 
-.episode-card img {
+/* Responsive iframe ratio */
+.ratio{
+  position: relative;
   width: 100%;
+  padding-top: 56.25%;
+  background: rgba(0,0,0,.15);
 }
-
-.episode-card div {
-  padding: 18px;
-}
-
-.episode-card h4 {
-  font-size: 15px;
-  margin-bottom: 6px;
-}
-
-.episode-card span {
-  font-size: 12px;
-  color: #00ff99;
-}
-
-/* ================= HOST ================= */
-.host {
-  padding-top: 80px;
-}
-
-.host-card {
-  background: #1b0d3f;
-  border-radius: 20px;
-  display: flex;
-  gap: 24px;
-  padding: 24px;
-  align-items: center;
-}
-
-.host-card img {
-  width: 120px;
-  border-radius: 50%;
-}
-
-.host-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.host-card p {
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-/* ================= FOOTER ================= */
-.footer {
-  padding: 64px 0;
-  text-align: center;
-  background: radial-gradient(circle at bottom, #2b0f4d, #12062a 70%);
-}
-
-.footer h2 {
-  font-size: 36px;
-  margin-bottom: 12px;
-}
-
-.footer p {
-  font-size: 12px;
-  opacity: 0.6;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 992px) {
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .why-grid,
-  .episode-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .host-card {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 576px) {
-  section {
-    padding: 72px 6%;
-  }
-
-  .hero h1 {
-    font-size: 44px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-  }
-
-  .why-grid,
-  .episode-grid {
-    grid-template-columns: 1fr;
-  }
+.ratio iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
